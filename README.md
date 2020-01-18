@@ -9,3 +9,6 @@ hardware
 -camere
 -microphone 
 
+geolocation to send notification 
+interacting with voice with app 
+image recognition
