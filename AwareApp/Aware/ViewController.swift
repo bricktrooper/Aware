@@ -11,6 +11,7 @@ import AVKit
 import Vision
 import Speech
 import AVFoundation
+import MediaPlayer
 
 class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate {
     @IBOutlet var dictationButton: UIButton!
@@ -121,7 +122,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVCaptureVid
             dictationButton.setTitle("Start Recording", for: .normal)
             objectInFront = obj
             print(objectInFront)
-            announce(myText: "I think I see " + objectInFront, myLang: "en_EN")
+            announce(myText: "I think I see " + objectInFront, myLang: "en_US")
             request?.endAudio()
             audioEngine.stop()
         }else{
@@ -160,6 +161,12 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVCaptureVid
     }
     
     func announce(myText :String , myLang : String ) {
+        let volumeView = MPVolumeView()
+        if let view = volumeView.subviews.first as? UISlider
+        {
+            view.value = 1.0   
+        }
+        
         let audioSession = AVAudioSession.sharedInstance()
         try? audioSession.setCategory(AVAudioSession.Category.playback)
         
