@@ -1,6 +1,5 @@
 #!/bin/bash
 
-rm code.tar
-tar -cvf code.tar code
-scp code.tar pi@10.32.94.141:code.tar
-rm code.tar
+RPI_IP=10.33.128.49
+
+scp spatial.py pi@"$RPI_IP":spatial.py
