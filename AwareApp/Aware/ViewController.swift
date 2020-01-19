@@ -27,7 +27,7 @@ class ViewController: UIViewController, SFSpeechRecognizerDelegate, AVCaptureVid
     
     let identifierLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .white
+        label.backgroundColor = .orange
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
